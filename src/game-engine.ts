@@ -9,15 +9,7 @@ export default class GameEngine {
     private paintingContext: CanvasRenderingContext2D | null;
     private screenHeight: number = 0;
     private screenWidth: number = 0;
-    //init() {
-        // this.canvas = null;
-        // this.run = run;
-        // if (window.jQuery)  
-        //     this.initialize = initializeWithJquery; // This will use jquery.
-        // else
-        //this.initialize = initialize; // This will bypass jquery. That would make it tighter for sure!
-        // return me;
-    //}
+    
     initialize() {
         this.canvasId = nanoid(11)
         this.body = document.getElementsByTagName("body")[0];
@@ -43,13 +35,60 @@ export default class GameEngine {
         this.paint();
     }
 
-    run() {
-        this.initialize();
-        this.paint();
+    // run() {
+    //     this.initialize();
+    //     this.paint();
+    // }
+
+    private enableLooping: boolean = false;
+    startLoop() {
+        if (!this.enableLooping) {
+            this.enableLooping = true;
+            this.loop(Date.now());
+        }
     }
+
+    pauseLoop() {
+
+    }
+
+    resetLoop() {
+
+    }
+
+    private loop(timestamp: any) {
+        if (this.enableLooping) {
+
+            // this.updateGameData();
+            // this.paint();
+
+            window.requestAnimationFrame(this.loop);
+        }
+    }
+
+    // function update(progress) {
+    //     // Update the state of the world for the elapsed time since last render
+    //   }
+      
+    //   function draw() {
+    //     // Draw the state of the world
+    //   }
+      
+    //   function loop(timestamp) {
+    //     var progress = timestamp - lastRender
+      
+    //     update(progress)
+    //     draw()
+      
+    //     lastRender = timestamp
+    //     window.requestAnimationFrame(loop)
+    //   }
+    //   var lastRender = 0
+    //   window.requestAnimationFrame(loop)
 
     paint() {
         if (!this.paintingContext) this.paintingContext = this.canvas.getContext("2d");
+
         if (this.paintingContext) {
             this.paintingContext.clearRect(0, 0, this.canvas.width, this.canvas.height);
             this.paintingContext.fillStyle = "red";
@@ -59,6 +98,13 @@ export default class GameEngine {
             this.paintingContext.beginPath();
             this.paintingContext.rect(0, 0, this.canvas.width, this.canvas.height);
             this.paintingContext.stroke();
+        
+        //     if (this.paintingContext.isLoaded) {
+        //         for (var i=0; i<10; i++) {
+        //             //clipX, clipY, clipW, clipH, x, y, h, w
+        //             this.paintingContext.drawImage(tiles, i*32, 0, 32, 32, i*32*scale, 0, 32*scale, 32*scale);
+        //         }
+        //     }
         }
     }
 }
