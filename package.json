@@ -5,5 +5,26 @@
   "main": "index.js",
   "repository": "https://github.com/justingreenwoodcstg/webpack-project.git",
   "author": "Justinious Greenwoodista",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "@webpack-cli/generators": "^3.0.1",
+    "autoprefixer": "^10.4.14",
+    "html-webpack-plugin": "^5.5.0",
+    "prettier": "^2.8.4",
+    "ts-loader": "^9.4.2",
+    "typescript": "^4.9.5",
+    "webpack": "^5.76.0",
+    "webpack-cli": "^5.0.1",
+    "webpack-dev-server": "^4.11.1"
+  },
+  "scripts": {
+    "build": "webpack --mode=production --node-env=production",
+    "build:dev": "webpack --mode=development",
+    "build:prod": "webpack --mode=production --node-env=production",
+    "watch": "webpack --watch",
+    "serve": "webpack serve"
+  },
+  "dependencies": {
+    "nanoid": "^4.0.1"
+  }
 }
