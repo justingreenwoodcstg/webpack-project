@@ -1,0 +1,9 @@
+{
+  "name": "justin-game-engine",
+  "version": "1.0.0",
+  "description": "A simple javascript game engine and also a fun way to learn more about webpack and yarn.",
+  "main": "index.js",
+  "repository": "https://github.com/justingreenwoodcstg/webpack-project.git",
+  "author": "Justinious Greenwoodista",
+  "license": "MIT"
+}
